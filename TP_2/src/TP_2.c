@@ -63,20 +63,20 @@ int main(void)
 	int validacionDelAdd;
 	int validacionDelRemove;
 	int validacionDeLaInfo; //valida la informacion de los pasajeros
-	int banderaUno=0;
+	int bandera=0;
 
 	Passenger pasajeros [largo];
 
 	initPassengers(pasajeros, largo);
 	do
 	{
-		printf( "\n1-ALTAS:Ingresar pasajero. \n"
-		"2-MODIFICAR: Modificar pasajero. \n"
-		"3-BAJA:Eliminar pasajero. \n"
-		"4-INFORMAR:Informar pasajeros. \n"
-		"5- Ingreso forzado de pasajeros. \n"
-		"6- Salir. \n"
-		"\n Ingrese la opcion deseada.");
+		printf( "\n1-ALTAS:Ingresar pasajero: \n"
+		"2-MODIFICAR: Modificar pasajero: \n"
+		"3-BAJA:Eliminar pasajero: \n"
+		"4-INFORMAR:Informar pasajeros: \n"
+		"5- Ingreso forzado de pasajeros: \n"
+		"6- Salir: \n"
+		"\n Ingrese la opcion deseada:");
 
 		scanf("%d", &respuesta);
 		fflush(stdin);
@@ -95,10 +95,10 @@ int main(void)
 				{
 					printf("Error, vuelva a ingresar");
 				}
-				banderaUno = 1;
+				bandera = 1;
 				break;
 		case 2:
-			if(banderaUno ==1)
+			if(bandera ==1)
 			{
 				rellenar(&id,"Ingrese el id del pasajero a modificar: " );
 				buscarPosicion = findPassengerById(pasajeros, largo, id);
@@ -145,7 +145,7 @@ int main(void)
 			}
 			break;
 		case 3:
-			if(banderaUno ==1)
+			if(bandera ==1)
 			{
 				rellenar(&id,"Ingrese el id del pasajero a modificar: " );
 				buscarPosicion = findPassengerById(pasajeros, largo, id);
@@ -162,7 +162,7 @@ int main(void)
 			}
 			break;
 		case 4:
-			if(banderaUno ==1)
+			if(bandera ==1)
 			{
 				rellenar(&ordenamiento, "\n1-Ordenar por el apellido y por el tipo de pasajero. \n2-Ordenamiento por el codigo y el estado de vuelo.");
 				rellenar(&busqueda, "\n1-Ordenar de forma ascendente. \n2-Ordenar de forma descendente.");
@@ -218,6 +218,7 @@ int main(void)
 			typePassenger = 4;
 			strcpy(flycode, "BAN-20");
 			addPassenger(pasajeros, largo, contadorPasajero, name, lastName, price, typePassenger,flycode);
+			bandera= 1;
 			break;
 		case 6:
 			printf("\n Hasta luego!");
